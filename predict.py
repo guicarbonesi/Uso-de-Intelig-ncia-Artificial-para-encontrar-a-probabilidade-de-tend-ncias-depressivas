@@ -4,17 +4,17 @@
 # In[ ]:
 
 
-# function to call the model and return the predict
-# you can use joblib or pickel to import previous model
+# função para retornar o predict
+# voce pode usar joblib ou pickel para importar modelos prontos
 
 def depression(s):
     pred = model.predict([s])
     predprob = model.predict_proba([s])
     if pred[0] == 1:
-        return print('Not depressed\nProbability: ', np.max(predprob))
+        return print('Não depressivo - Probabilidade : ', np.max(predprob))
     else:
-         return print('Depressed\nProbability: ', np.max(predprob))
+         return print('Depressivo - Probabilidade : ', np.max(predprob))
         
-print(depression('i love you'))
-new_text = input('Input some text here: ')
+print(depression('Eu te amo'))
+new_text = input('Digite seu texto aqui')
 print(depression(new_text))
